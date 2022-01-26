@@ -1,28 +1,25 @@
-import User from "../model/User";
-
-
-
+import User from "../model/User.js";
 
 class UserRepository{
 
 
-    async findById(id){
+    async findById(id) {
         try {
-            return await User.findOne({ where: {id} });
-        } catch (error) {
-            console.error(error.message);
-            return null;
+          return await User.findOne({ where: { id } });
+        } catch (err) {
+          console.error(err.message);
+          return null;
         }
-    }
+      }
 
 
-    async findByEmail(email){
+    async findByEmail(email) {
         try {
-            return await User.findOne({ where: {email} });
-        } catch (error) {
-            console.error(error.message);
-            return null;
+          return await User.findOne({ where: { email } });
+        } catch (err) {
+          console.error(err.message);
+          return null;
         }
-    }
+      }
 }
-export default UserRepository;
+export default new UserRepository();

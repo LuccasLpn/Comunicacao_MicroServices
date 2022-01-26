@@ -1,12 +1,14 @@
 import express from "express";
-
 import * as db from "./src/config/db/InitialData.js";
+import userRoute from "./src/modules/user/routes/UserRoutes.js"
 
 const app = express();
 const env = process.env;
 const PORT = env.PORT || 8080;
 
 db.createInitialData();
+
+
 
 app.get('/api/status', (req, res) => {
     return res.status(200).json({
@@ -15,6 +17,8 @@ app.get('/api/status', (req, res) => {
         httpstatus: 200,
     })
 })
+app.use(userRoute);
+app.use(express.json);
 
 app.listen(PORT, () => {
     console.log(`Server started success at port ${PORT}`)

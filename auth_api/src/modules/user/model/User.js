@@ -1,7 +1,9 @@
 import Sequelize from 'sequelize'
 import sequelize from "../../../config/db/DbConfig.js";
 
-const User = sequelize.define('user',{
+const User = sequelize.define(
+    "user",
+    {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
