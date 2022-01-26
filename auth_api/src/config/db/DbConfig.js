@@ -1,7 +1,7 @@
-import { Sequelize } from "sequelize/dist";
+import Sequelize from 'sequelize'
 
 const sequelize = new Sequelize(
-    "auth-db", "root", "123456",{
+    "auth-db", "postgres", "lu072324",{
         host: "localhost",
         dialect: "postgres",
         quoteIdentifiers: false,
