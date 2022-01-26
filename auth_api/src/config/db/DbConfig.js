@@ -5,6 +5,7 @@ const sequelize = new Sequelize(
         host: "localhost",
         dialect: "postgres",
         quoteIdentifiers: false,
+
         define:{
             syncOnAssociation: true,
             timestamp: false,
@@ -12,6 +13,7 @@ const sequelize = new Sequelize(
             underscoreAll: true,
             freezeTableName: true
         },
+        
     },
 );
 
