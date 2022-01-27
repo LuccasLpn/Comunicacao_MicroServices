@@ -8,17 +8,17 @@ const PORT = env.PORT || 8080;
 
 db.createInitialData();
 
-
-
 app.get('/api/status', (req, res) => {
     return res.status(200).json({
         service: "Auth-API",
         status: "UP",
         httpstatus: 200,
     })
-})
-app.use(userRoute);
+});
+
 app.use(express.json);
+app.use(userRoute);
+
 
 app.listen(PORT, () => {
     console.log(`Server started success at port ${PORT}`)
