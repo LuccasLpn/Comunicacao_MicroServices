@@ -13,16 +13,19 @@ app.use(express.json());
 
 app.use(userRoute);
 
+
 app.use(CheckToken)
 
 
-app.get('/api/status', (req, res) => {
+app.get("/api/status", (req, res) => {
     return res.status(200).json({
-        service: "Auth-API",
-        status: "UP",
-        httpstatus: 200,
+      service: "Auth-API",
+      status: "up",
+      httpStatus: 200,
     });
 });
+  
+
 
 
 app.listen(PORT, () => {

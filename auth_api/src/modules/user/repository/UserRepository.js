@@ -21,5 +21,6 @@ class UserRepository{
           return null;
         }
       }
+      
 }
 export default new UserRepository();
