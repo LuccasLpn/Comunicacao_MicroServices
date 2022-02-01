@@ -11,10 +11,6 @@ db.createInitialData();
 
 app.use(express.json());
 
-app.use(userRoute);
-
-
-app.use(CheckToken)
 
 
 app.get("/api/status", (req, res) => {
@@ -24,6 +20,9 @@ app.get("/api/status", (req, res) => {
       httpStatus: 200,
     });
 });
+
+app.use(userRoute);
+
   
 
 

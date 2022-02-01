@@ -10,9 +10,11 @@ class UserService {
     async findByEmail(req) {
       try {
         const { email } = req.params;
+        const { authUser } = req;
         this.validateRequestData(email);
         let user = await UserRepository.findByEmail(email);
         this.validateUserNotFound(user);
+        this.validateAuthenticationUser(user, authUser)
         return {
           status: HttpStatus.SUCCESS,
           user: {
@@ -52,6 +54,14 @@ class UserService {
           throw new UserException(HttpStatus.UNAUTHORIZED, 
             "Password doesn´t match. ")
       }
+    }
+
+    async validateAuthenticationUser(user, authUser){
+      if(! authUser || user.id !== authUser.id){
+          throw new UserException(
+            HttpStatus.BAD_REQUEST,
+            "You cannot see this user data.")
+      };
     }
 
     async getAccessToken(req){
