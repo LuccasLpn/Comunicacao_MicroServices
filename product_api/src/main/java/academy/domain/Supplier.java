@@ -17,6 +17,7 @@ public class Supplier {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
+    @JoinColumn(name = "NAME", nullable = false)
     private String name;
 
 }
