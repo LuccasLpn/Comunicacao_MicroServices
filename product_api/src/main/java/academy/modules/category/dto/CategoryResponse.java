@@ -1,6 +1,6 @@
-package academy.dto;
+package academy.modules.category.dto;
 
-import academy.domain.Category;
+import academy.modules.category.domain.Category;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 

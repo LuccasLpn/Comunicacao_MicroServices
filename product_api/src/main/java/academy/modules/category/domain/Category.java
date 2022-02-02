@@ -1,8 +1,7 @@
-package academy.domain;
+package academy.modules.category.domain;
 
 
-import academy.dto.CategoryRequest;
-import academy.dto.CategoryResponse;
+import academy.modules.category.dto.CategoryRequest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

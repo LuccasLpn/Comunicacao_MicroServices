@@ -1,4 +1,4 @@
-package academy.dto;
+package academy.modules.category.dto;
 
 import lombok.Data;
 

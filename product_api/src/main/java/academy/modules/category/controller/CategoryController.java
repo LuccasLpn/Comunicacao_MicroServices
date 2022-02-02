@@ -1,8 +1,8 @@
-package academy.controller;
+package academy.modules.category.controller;
 
-import academy.dto.CategoryRequest;
-import academy.dto.CategoryResponse;
-import academy.service.CategoryService;
+import academy.modules.category.dto.CategoryRequest;
+import academy.modules.category.dto.CategoryResponse;
+import academy.modules.category.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +19,8 @@ public class CategoryController {
 
     @PostMapping
     public CategoryResponse save(@RequestBody CategoryRequest request){
-       return categoryService.saveCategory(request);
+        return categoryService.saveCategory(request);
     }
+
 
 }

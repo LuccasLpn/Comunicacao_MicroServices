@@ -1,10 +1,11 @@
-package academy.service;
+package academy.modules.category.service;
 
-import academy.domain.Category;
-import academy.dto.CategoryRequest;
-import academy.dto.CategoryResponse;
+import academy.modules.category.dto.CategoryRequest;
+import academy.modules.category.dto.CategoryResponse;
+import academy.modules.category.repository.CategoryRepository;
+import academy.modules.category.domain.Category;
 import academy.exceptions.ValidationException;
-import academy.repository.CategoryRepository;
+import academy.modules.supplier.domain.Supplier;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +15,18 @@ import static org.springframework.util.ObjectUtils.isEmpty;
 @RequiredArgsConstructor
 public class CategoryService {
 
-    private final CategoryRepository categoryRepository;
+    private final CategoryRepository repository;
+
+
+    public Category findById(Integer id){
+        return repository.findById(id)
+                .orElseThrow(() -> new ValidationException("There no supplier for given ID: "));
+    }
 
 
     public CategoryResponse saveCategory(CategoryRequest request){
         validateCategoryNameInforme(request);
-        var category = categoryRepository.save(Category.of(request));
+        var category = repository.save(Category.of(request));
         return CategoryResponse.of(category);
     }
 
