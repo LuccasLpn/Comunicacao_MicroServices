@@ -33,7 +33,7 @@ public class Product {
     @JoinColumn(name = "FK_SUPPLIER", nullable = false)
     private Supplier supplier;
 
-    @Column(name = "Quantity_Available", nullable = false)
+    @Column(name = "QUANTITY_AVAILABLE", nullable = false)
     private Integer quantityAvailable;
 
     @Column(name = "CREATED_AT", nullable = false, updatable = false)
